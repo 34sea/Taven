@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*:not(i,span){
+    font-family: 'Roboto', sans-serif !important;
+}
+
+:root{
+	/*Corpo cores*/
+	--corpo-cor-font: #000;
+	--corpo-corFundo: #fff;
+	/*---------------------------------------*/
+	/*Corpo header*/
+	--header-cor-font: #000;
+	--header-cor-links: #000;
+	--header-corFundo: #fff;
+	/*---------------------------------------*/
+	--cor-do-site: #222;
+	--cor-sec-do-site: #213440;
+	/*Tamanho de letras*/
+	--tamanho-header: 13px;
+    /*paddings*/
+    --padPricLateralPc: 40px;
+    --padPricAlturaPc: 20px;
+    /*paragrafos*/
+    --paragrafos: #222;
+    --rodape: #eeeeee;
+    /*#c9d1d8*/
+    /*#f5f5f7*/
+    --site-c: #104c97;
+    --sd-c: #e8542c;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+    color: var(--paragrafos);
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: #0f79af;
+    transition: all 0.2s ease-in-out;
+}
+
+.infos{
+    border: 0px solid black;
+    width: 100%;
+    display: flex;
+    padding: 0px 50px;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    background-color: #000;
+    display: none;
+}
+
+
+.infos img{
+    width: 15px;
+}
+
+.cell {
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #fff;
+}
+
+.cell span{
+    color: #fff;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.email{
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.email span{
+    color: #fff;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.sec{
+    margin-right: 0px;
+    display: flex;
+    align-items: flex-start;
+}
+.linguas{
+    border: 0px solid black;
+    min-width: 140px;
+    min-height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.linguas:hover{
+    overflow: visible;
+}
+
+.linguas .lingua{
+    position: absolute;
+    top: 25px;
+    right: -10px;
+    background-color: #0f79af;
+    padding: 0px;
+    height: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    border: 0px solid #0f79af;
+}
+.linguas:hover .lingua{
+    display: flex;
+    padding: 15px 5px;
+    right: -5px;
+}
+
+.lingua a{
+    color: #fff;
+    text-decoration: none;
+    width: 50px;
+    text-align: center;
+}
+
+.lingua span{
+    color: #fff;
+    margin: 0px 10px;
+}
+
+.linguas .engloba{
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    
+    cursor: pointer;
+}
+
+.linguas .engloba span{
+    color: #fff;
+    margin-left: 10px;
+}
+
+.info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+}
+
+.fir{
+    display: flex;
+    align-items: center;
+}
+
+.redesNav{
+    display: flex;
+    align-items: center;
+
+}
+
+.redesNav a{
+    margin-left: 15px;
+}
+
+.redesNav a:first-child{
+    border: 0px solid black;
+    margin: 0px;
+}
+
+
+.cell, .email{
+    margin-left: 80px;
+}
+
+.nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0);
+    height: 60px!important;
+    z-index: 999;
+}
+
+.nav h1 {
+    padding: 10px 0px;
+    padding-left: 50px;
+    
+}
+.nav h1 a{
+    display: flex;
+    align-items: center;
+    
+}
+
+.priLo{
+    color:rgba(255, 255, 255, 0)!important;
+    margin-left: 10px;
+    font-size: 12px!important;
+}
+
+.nav h1 img{
+    width: 80px;
+    display: block;
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    padding-right: 50px;
+
+}
+
+.menu li{
+    margin-left: 20px;
+    
+
+}
+
+.menu li a{
+    font-size: 1rem;
+    text-transform: Capitalize;
+    font-weight: normal;
+    padding: 5px 2px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.logoLetter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.priLo{
+    font-size: 1rem;
+    color: #222;
+}
+
+.secuLo{
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-top: 5px;
+    display: none;
+}
+
+.humbu{
+    display: none;
+    flex-direction: column;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.humbu span{
+    height: 3px;
+    width: 100%;
+    background-color: #222;
+    margin-top: 4px;
+    border-radius: 10px;
+}
+
+.checkbox{
+    display: none;
+}
+
+.menu li:last-child{
+    width: 80px;
+    border: 0px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+}
+
+.btnLogin{
+    background-color: #0f79af;
+    height: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 13px!important;
+}
+
+@media (max-width: 710px){
+    
+    .humbu{
+        display: flex;
+        z-index: 999;
+        
+        top: 0px;
+        left: 10px;
+        background-color: #fff;
+        border: 0px;
+        transition: all 0.3s ease-in-out;
+    }
+    .menu{
+        display: flex;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        padding-top: 60px;
+        width: 0px;
+        overflow: hidden;
+        visibility: hidden;
+        transition: all 0.4s ease-in-out;
+        align-items: flex-start;
+    }
+
+    .menu li{
+        border: 1px solid #ddd;
+        width: 200px;
+        margin-top: 10px;
+        padding: 10px 5px;
+        border-radius: 5px;
+    }
+    .nav{
+        flex-direction: row-reverse;
+    }
+}
+
+
+@media (max-width: 740px){
+    .cell, .email{
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 646px){
+    .cell, .email{
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 610px){
+    .email span, .cell span{
+        display: none;
+    }
+}

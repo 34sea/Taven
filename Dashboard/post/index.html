@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taven Store</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        *:not(i,span){
+            font-family: 'Roboto', sans-serif !important;
+        }
+        body {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #222;
+        }
+
+        label, input, select {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-indent: 15px;
+            background-color: #fff;
+            outline: #007BFF;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+
+        button{
+            width: 150px;
+            background-color: #06aa5e;
+            height: 30px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .dataNascimento{
+            width: 100%!important;
+        }
+
+        .conta{
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .conta a{
+            text-decoration: none;
+            color: #5372f0;
+        }
+        label{
+            font-size: 14px;
+            color: #555;
+        }
+        .sigup{
+            background-color: #5372f0!important;
+            border: 1px solid #5372f0;
+            color: #fff;
+        }
+
+        #sinopse{
+            max-width: 100%;
+            max-height: 100px;
+            min-width: 100%;
+            min-height: 100px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Adicionar um novo filme</h2>
+        <form id="signupForm">
+            <div class="step active" id="step1">
+                <label for="nFilme">Nome do filme:</label>
+                <input type="text" id="email" name="nomeFilme" required class="nomeFilme">
+                
+                <label for="direccao">Direção:</label>
+                <input type="text" id="direccao" name="direccao" required class="direccao">
+
+                <label for="elenco">Elenco:</label>
+                <input type="text" id="elenco" name="elenco" required class="elenco">
+
+                <label for="cat">Categoria:</label>
+                <select name="cat" id="cat" class="categoria">
+                    <option value="drama">Drama</option>
+                    <option value="accao">Acção</option>
+                    <option value="comedia">Comédia</option>
+                    <option value="ficcao">Ficção</option>
+                    <option value="romance">Romance</option>
+                    <option value="terror">Terror</option>
+                </select>
+                <label for="plano">Plano:</label>
+                <select name="pla" id="pla" class="plano">
+                    <option value="gratis">Gratis</option>
+                    <option value="premium">Premium</option>
+                </select>
+
+                <button type="button" onclick="nextStep(1)">Próximo</button>
+            </div>
+            <div class="step" id="step2">
+                <label for="dataLancamento">Data do lançamento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required class="dataLancamento">
+
+                <label for="sinopse">Sinopse</label>
+                <textarea name="" id="sinopse" cols="30" rows="10" class="sinopse"></textarea>
+
+                <label for="video">Arquivo do filmes</label>
+                <input type="file" name="" id="video">
+
+                <label for="postLink">Imagem de capa(link):</label>
+                <input type="text" id="postLink" name="postLink" required class="post">
+
+               
+                
+                <button type="button" onclick="prevStep(2)">Anterior</button>
+                <button type="submit" class="sigup">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const form = document.getElementById('signupForm');
+        
+        function nextStep(step) {
+            if (step === currentStep && currentStep < 2) {
+                const currentStepFields = document.querySelectorAll('#step' + currentStep + ' input[required]');
+                let fieldsFilled = true;
+                currentStepFields.forEach(function(field) {
+                    if (field.value.trim() === '') {
+                        fieldsFilled = false;
+                    }
+                });
+                if (fieldsFilled) {
+                    document.getElementById('step' + currentStep).classList.remove('active');
+                    currentStep++;
+                    document.getElementById('step' + currentStep).classList.add('active');
+                } else {
+                    alert('Preencha todos os campos antes de prosseguir.');
+                }
+            }
+        }
+        
+        function prevStep(step) {
+            if (step === currentStep && currentStep > 1) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep--;
+                document.getElementById('step' + currentStep).classList.add('active');
+            }
+        }
+    </script>
+    <script src="./post.js" type="module"></script>
+</body>
+</html>

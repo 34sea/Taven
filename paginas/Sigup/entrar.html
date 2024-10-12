@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestão de emprestimos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="../../estilos/header.css">
+    <link rel="stylesheet" href="../../estilos/banner.css">
+    <link rel="stylesheet" href="../../estilos/main.css">
+    <link rel="stylesheet" href="../../estilos/footer.css">
+    <link rel="stylesheet" href="../../estilos/popup.css">
+    <link rel="stylesheet" href="../../estilos/index.css">
+    <link rel="stylesheet" href="../../estilos/footerResponsividade.css">
+    <style>
+        .org{
+            display: none;
+        }
+
+        .perfil{
+            color: #fff;
+        }
+
+        .menu a{
+            color: #222;
+        }
+        .dirForEmpres{
+            margin: 10px 0px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .container2 {
+            width: 400px;
+            background-color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container2 h2 {
+            text-align: center;
+            color: #4caf50;
+        }
+
+        .container2 label, .container2 input, .container2 select {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .container2 input[type="text"],
+        .container2 input[type="email"],
+        .container2 input[type="password"],
+        .container2 input[type="tel"],
+        .container2 input[type="number"],
+        .container2 select {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-indent: 15px;
+            background-color: #fff;
+            padding: 0px!important;
+        }
+
+        .container2 input[type="checkbox"] {
+            width: auto;
+        }
+
+        .container2 input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        
+        .container2 input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .container2 .step {
+            display: none;
+        }
+        .container2 .step.active {
+            display: block;
+        }
+
+        .container2 button{
+            width: 120px;
+            background-color: #fff;
+            height: 30px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #222!important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .container2 .dataNascimento{
+            width: 100%!important;
+        }
+
+        .container2 .conta{
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .container2 .conta a{
+            text-decoration: none;
+            color: #4caf50;
+        }
+        .container2 label{
+            font-size: 14px;
+            color: #555;
+        }
+        .btnsB{
+            display: flex;
+            align-items: center;
+        }
+        .btnsB .cadastraS{
+            margin-left: 10px!important;
+        }
+        input{
+            outline: none!important;
+            color: #555!important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="#" method="POST" id="signupForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required class="emailSig"><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required class="senhaSig"><br>
+
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Ainda não tem uma conta? <a href="sigUp.html" class="cadT">Cadastre-se</a></p>
+    </div>
+    <div class="org">
+        <header>
+                
+            <div class="info">
+                <div class="infos">
+                    <div class="fir">
+                        <div class="redesNav">
+                            <a href="#">
+                                <img src="../../imgs/redes/facebook.svg" alt="fb">
+                            </a>
+                            <a href="#">
+                                <img src="../../imgs/redes/ig.svg" alt="ig">
+                            </a>
+                            
+                        </div>
+                        <div class="cell">
+                            <img src="../../imgs/redes/phone-flip.svg" alt="telefone">
+                            <span>
+                                (+258) 85 743 2111
+                            </span>
+                        </div>
+                        <a href="#" class="email">
+                            <img src="../../imgs/redes/envelope.svg" alt="email">
+                            <span>
+                                augusto@gmail.com
+                            </span>
+                        </a>
+                    </div>
+                    <a href="#" class="sec" id="mostrarPopup">
+                        <div class="linguas">
+                            <div class="engloba">
+                                <p class="perfil">
+                                    bem vindo -<span class="nome">Martinho</span>
+                                </p>
+                            </div>
+                        </div>
+        
+                    </a>
+                </div>
+            </div>
+            <nav class="nav">
+                <h1>
+                    <a href="#">
+                        <img src="../../imgs/logo/logv2.png" alt="logo">
+                        <div class="logoLetter">
+                            <div class="priLo">
+                                Kadosh
+                            </div>
+                            <div class="secuLo">
+                                Comodidade &amp; conforto
+                            </div>
+                        </div>
+                       
+                    </a>
+                   
+                </h1>
+                <ul class="menu">
+                    <li>
+                        <a href="#" target="_blank">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="destaque">
+                            Meus emprestimos
+                        </a>
+                    </li>
+
+                </ul>
+                <input type="checkbox" name="" id="humbu" class="checkbox">
+                <label class="humbu" for="humbu">
+                    <span></span><span></span><span></span>
+                </label>
+            </nav>
+        </header>
+        <main>
+            <div class="banner">
+                <div class="bannerP">
+                    <div class="encontrarQuarto">
+                        <div class="carD">
+                            <span>
+                                Melhor destino para te!!
+                            </span>
+                        </div>
+                        <div class="carD">
+                            Oasis de Conforto e Beleza Natural
+                        </div>
+                        <div class="carD">
+                            <a href="#">
+                                Encontre um quarto
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="publi">
+                        <h2>
+                            <span style="color: #4CAF50;">Kadosh</span> - Sua Parceira em Concretizar Sonhos Financeiros.
+                        </h2>
+                        <a href="#" class="fazerEmprestemo">
+                            Emprestar Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="galeria">
+                <div class="textoT">
+                    <div class="dirForEmpres">
+                        Tens direitos a só 4 emprestimos
+                    </div>
+                    <h2>
+                       Seus emprestimos
+                    </h2>
+                    <p>
+                        Você está pronto para uma escapadela inesquecível? 
+                        Seja bem-vindo à nossa encantadora Guest House, 
+                        o refúgio perfeito para todos os viajantes em busca de 
+                        tranquilidade, beleza e hospitalidade excepcional.
+                    </p>
+                </div>
+                <div class="cards">
+                    <a href="#" class="card cadr">
+                        <div class="imagensCards">
+                            <img src="../../imgs/imgsEmprestimos/emprestimo.png" alt="imagem"  class="imgEmpres">
+                        </div>
+                        <p class="pDiF">
+                           Solicitar empréstimo
+                        </p>
+                        <div class="dadosEmprestimo prccess">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="process comuEmpre">
+                                    Processando...
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dadosEmprestimo dvg">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="divida comuEmpre">
+                                    Em divida
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="card cadr">
+                        <div class="imagensCards">
+                            <img src="../../imgs/imgsEmprestimos/emprestimo.png" alt="imagem"  class="imgEmpres">
+                        </div>
+                        <p class="pDiF">
+                           Solicitar empréstimo
+                        </p>
+
+                        <div class="dadosEmprestimo prccess">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="process comuEmpre">
+                                    Processando...
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dadosEmprestimo dvg">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="divida comuEmpre">
+                                    Em divida
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="card cadr">
+                        <div class="imagensCards">
+                            <img src="../../imgs/imgsEmprestimos/emprestimo.png" alt="imagem"  class="imgEmpres">
+                        </div>
+                        <p class="pDiF">
+                           Solicitar empréstimo
+                        </p>
+                        <div class="dadosEmprestimo prccess">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="process comuEmpre">
+                                    Processando...
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dadosEmprestimo dvg">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="divida comuEmpre">
+                                    Em divida
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="card cadr">
+                        <div class="imagensCards">
+                            <img src="../../imgs/imgsEmprestimos/emprestimo.png" alt="imagem" class="imgEmpres">
+                        </div>
+                        <p class="pDiF">
+                           Solicitar empréstimo
+                        </p>
+                        <div class="dadosEmprestimo prccess">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="process comuEmpre">
+                                    Processando...
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dadosEmprestimo dvg">
+                            <div class="states">
+                                <span>
+                                    Status:
+                                </span>
+                                <span class="divida comuEmpre">
+                                    Em divida
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <div class="kjsu">
+                <h2>
+                    Beneficios
+                </h2>
+                <div class="icons">
+                    <div class="icon">
+                        <img src="../../imgs/Comodidades/secure.png" alt="comodidade">
+                    </div>
+                    <div class="icon">
+                        <img src="../../imgs/Comodidades/vodacom.png" alt="comodidade">
+                    </div>
+                    <div class="icon">
+                        <img src="../../imgs/Comodidades/movitel.png" alt="comodidade">
+                    </div>
+                    <div class="icon">
+                        <img src="../../imgs/Comodidades/money.png" alt="comodidade">
+                    </div>
+                    <div class="icon">
+                        <img src="../../imgs/Comodidades/suportv2.png" alt="comodidade">
+                    </div>
+                </div>
+            </div>
+            <section class="galeria">
+                <div class="textoT">
+                    <h2>
+                       Emprestimo sem burocracia, como fazer?
+                    </h2>
+                    <p>
+                        Você está pronto para uma escapadela inesquecível? 
+                        Seja bem-vindo à nossa encantadora Guest House, 
+                        o refúgio perfeito para todos os viajantes em busca de 
+                        tranquilidade, beleza e hospitalidade excepcional.
+                    </p>
+                </div>
+                <div class="cards">
+                    <a href="./paginas/Galeria/index.html" target="_blank" class="card">
+                        <div class="imagensCards">
+                            <img src="../../imgs/Emprestimo process/login.jpg" alt="imagem">
+                        </div>
+                        <p>
+                           1. Faça o registro
+                        </p>
+                        <div class="pDi">
+                            Cadastre-se no sistema
+                        </div>
+                    </a>
+                    <a href="./paginas/Galeria/index.html" target="_blank" class="card">
+                        <div class="imagensCards">
+                            <img src="../../imgs/Emprestimo process/statistics.jpg" alt="imagem">
+                        </div>
+                        <p>
+                            2. Escolha a plataforma de emprestimo
+                        </p>
+                        <div class="pDi">
+                            Vodacom/Movitel
+                        </div>
+                    </a>
+                    <a href="./paginas/Galeria/index.html" target="_blank" class="card">
+                        <div class="imagensCards">
+                            <img src="../../imgs/Emprestimo process/Aprovado.jpg" alt="imagem">
+                        </div>
+                        <p>
+                            3. Aprovação ou Recusa
+                        </p>
+                        <div class="pDi">
+                            Aprovação 100%
+                        </div>
+                    </a>
+                    <a href="./paginas/Galeria/index.html" target="_blank" class="card">
+                        <div class="imagensCards">
+                            <img src="../../imgs/Emprestimo process/money.jpg" alt="imagem">
+                        </div>
+                        <p>
+                            4. Tenha o dinheiro na conta
+                        </p>
+                        <div class="pDi">
+                            Aceite os termos e tenha o dinheiro na sua conta
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <ul>
+               
+                <li>
+                    <h2>
+                        Nossas redes
+                    </h2>
+                    <div class="linksD">
+                        <a href="#">
+                            <img src="../../imgs/redes2/facebook.svg" alt="redes">
+                            <span>
+                                Facebook
+                            </span>
+                        </a>
+                        <a href="#">
+                            <img src="../../imgs/redes2/ig.svg" alt="redes">
+                            <span>
+                                Instagram
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Links
+                    </h2>
+                    <div class="linksD">
+                        <a href="#">
+                            Home
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Sobre
+                    </h2>
+                    <div class="linksD">
+                        <a href="#">
+                            Informação da companhia
+                        </a>
+                        <a href="#">
+                            Newslatter
+                        </a>
+                        <a href="#">
+                            Contacte-nos
+                        </a>
+                        <a href="#">
+                            Partilhar
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Ajuda e contato
+                    </h2>
+                    <div class="linksD">
+                        <a href="#">
+                            Suporte técnico
+                        </a>
+                        <a href="#">
+                            Perguntas frequentes (FAQs)
+                        </a>
+                        <a href="#">
+                            Políticas de reembolso
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Comunidade
+                    </h2>
+                    <div class="linksD">
+                        <a href="#">
+                            Newslatter
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            
+        </footer>
+        <div class="assinatura">
+            <a href="#" target="_blank">
+                &copy;Kadosh
+            </a>
+        </div>
+        <div id="popup" class="popup">
+            <span id="fecharPopup" class="fechar-popup">&times;</span>
+            <div class="etapa">
+                <h2>Dados perfil</h2>
+                <p>Endereço de E-mail:<span class="emailR comunSpan">martinho@gmail.com</span></p>
+                <p>Nome de Usuário:<span class="nomeR comunSpan">martinho</span></p>
+                <p>Data de Nascimento:<span class="dataR comunSpan">2023-10-25</span></p>
+                <p>Sexo/Gênero:<span class="sexoR comunSpan">Masculino</span></p>
+                <p>Número de Telefone:<span class="cellR comunSpan">85 743 2111</span></p>
+                <p>Senha:<span>********</span></p>
+            </div>
+        </div>
+        <div class="pupupEmprestimo">
+            <div class="container2">
+                <form class="formSolicitar">
+                    <div class="step active" id="step1">
+                        <label for="valor">Para começar, <b>Quanto</b> você quer emprestado?</label>
+                        <input type="number" id="valor" name="valor" required class="valorSig" placeholder="0,00MZN">
+                        <label for="objetivo">Qual seria o <b>objetivo</b> do seu empréstimo?</label>
+                        <select id="objetivo" name="objetivo" class="objetivoSig">
+                            <option value="Compras">Compras</option>
+                            <option value="pagar contas">Pagar contas</option>
+                            <option value="Gastos com saúde">Gastos com saúde</option>
+                            <option value="Ajudar um parente">Ajudar um parente</option>
+                            <option value="Tirar ferias">Tirar ferias</option>
+                            <option value="Reformar minha casa">Reformar minha casa</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                        <label for="work">Qual é, <b>seu tipo de trabalho?</b></label>
+                        <select id="work" name="work" class="workSig">
+                            <option value="Funcionário publico">Funcionário publico</option>
+                            <option value="desempregado">Desempregado</option>
+                            <option value="empreendedor">Empreendedor</option>
+                            <option value="aposentado">Aposentado</option>
+                            <option value="estudante">Estudante</option>
+                            <option value="outro">Outro</option>
+                        </select>
+
+                        <label for="salario">Qual é o, <b>valor da renda mensal?</b></label>
+                        <select id="salario" name="salario" class="salarioSig">
+                            <option value="Até 8000, 00mzn">Até 8000, 00mzn</option>
+                            <option value="Entre 8000, 00mzn à 18 000, 00mzn">Entre 8000, 00mzn à 18 000, 00mzn</option>
+                            <option value="Entre 18000, 00mzn à 28 000, 00mzn">Entre 18000, 00mzn à 28 000, 00mzn</option>
+                            <option value="Mais de 28 0000,00mz">Mais de 28 0000,00mz</option>
+                        </select>
+                        <button type="button" onclick="nextStep(1)">Próximo</button>
+                    </div>
+                    <div class="step" id="step2">
+                        <label for="bens">Você <b>possui</b> algum desses itens abaixo?</label>
+                        <select id="bens" name="bens" class="bensSig">
+                            <option value="Carro">Carro/s</option>
+                            <option value="Casa">Casa/s</option>
+                            <option value="Negocio">Negócio</option>
+                            <option value="Não possuo nenhum item">Não possuo nenhum item</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        <label for="parcelas">Em quantas <b>parcelas</b> pretendes pagar?</label>
+                        <select id="parcelas" name="parcelas" class="parcelasSig">
+                            <option value="4x">4x</option>
+                            <option value="8x">8x</option>
+                            <option value="16px">16x</option>
+                            <option value="parcela única">parcela única</option>
+                        </select>
+
+                        <label for="carteira">Escolha uma das, <b>carteiras</b> abaixo</label>
+                        <select id="carteira" name="carteira" class="carteiraSig">
+                            <option value="Vodacom">Vodacom</option>
+                            <option value="Movitel">Movitel</option>
+                        </select>
+                        <div class="btnsB">
+                            <button type="button" onclick="prevStep(2)">Anterior</button>
+                            <button type="submit" class="sigup cadastraS">Solicitar</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="pagarPup">
+            <div class="sarBtnPag">
+                X
+            </div>
+            <div class="cardPagar">
+                <h2>Efetuar o pagamento!!!</h2>
+                <div class="btnPagaEmpr">
+                    Pagar
+                </div>
+                <div class="id">0</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentStep = 1;
+        const form = document.getElementById('signupForm');
+        
+        function nextStep(step) {
+            if (step === currentStep && currentStep < 2) {
+                const currentStepFields = document.querySelectorAll('#step' + currentStep + ' input[required]');
+                let fieldsFilled = true;
+                currentStepFields.forEach(function(field) {
+                    if (field.value.trim() === '') {
+                        fieldsFilled = false;
+                    }
+                });
+                if (fieldsFilled) {
+                    document.getElementById('step' + currentStep).classList.remove('active');
+                    currentStep++;
+                    document.getElementById('step' + currentStep).classList.add('active');
+                } else {
+                    alert('Preencha todos os campos antes de prosseguir.');
+                }
+            }
+        }
+        
+        function prevStep(step) {
+            if (step === currentStep && currentStep > 1) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep--;
+                document.getElementById('step' + currentStep).classList.add('active');
+            }
+        }
+        function popupSoli(){
+            document.querySelector(".pupupEmprestimo").style.display = "flex"
+        }
+
+        function tirarPopupSoli(){
+            document.querySelector(".pupupEmprestimo").style.display = "none"
+        }
+    </script>
+    <script src="./entrar.js" type="module"></script>
+</body>
+</html>

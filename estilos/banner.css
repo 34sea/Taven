@@ -1,0 +1,99 @@
+.banner{
+    
+    border: 0px solid black;
+    background-image: url(../imgs/banner/b5.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+}
+
+.bannerP{
+    height: 680px;
+    background: linear-gradient(to right, #000, rgba(0, 0, 0, 0));
+    padding: 20px 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    
+    
+}
+
+.encontrarQuarto{
+    background-color: white;
+    height: 70px;
+    border-radius: 5px;
+    
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+    width: 100%;
+    display: none;
+}
+.linhaGra{
+    height: 5px;
+    width: 80px;
+    background-color: #0f79af;
+    margin-bottom: 10px;
+    border-radius: 1px;
+    display: none;
+}
+.publi{
+    width: 650px;
+}
+
+.publi h2{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.publi p{
+    color: #fff;
+    margin: 10px 0px;
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 30px;
+    font-weight: normal;
+    display: block;
+}
+
+.publi a{
+    height: 40px!important;
+    width: 150px;
+    background-color: #fff;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15PX;
+    border-radius: 5px;
+    font-weight: 700;
+    color: #000;
+}
+
+@media (max-width: 524px){
+    .bannerP{
+        height: 300px;
+    }
+}
+
+@media (max-width: 462px){
+    .bannerP{
+        height: 250px;
+    }
+    .textoT h2{
+        text-align: center;
+    }
+}
+
+@media (max-width: 390px){
+    .bannerP{
+        height: 200px;
+    }
+}
+

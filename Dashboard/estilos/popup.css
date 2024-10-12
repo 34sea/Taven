@@ -1,0 +1,189 @@
+ /* Estilos para o botão ou texto que aciona o popup */
+ .open-popup {
+    cursor: pointer;
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Estilos para o formulário popup */
+.modal, .modal2, .modal3, .modal4 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content, .modal-content2, .modal-content3, .modal-content4 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+/* Estilos para os campos do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+    margin: 10px 0px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #e8542c;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #999;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.popup-image {
+    max-width: 370px;
+    max-height: 370px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.overlay form{
+    background-color: #fff;
+    margin-top: 10px;
+    width: 340px;
+    padding: 10px 20px;
+}
+
+.overlay form label{
+    font-weight: 700;
+}
+
+.close-button, .close2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+
+.abrig{
+    display: flex;
+    justify-content: space-between;
+}
+
+.abrig2{
+    display: flex;
+    flex-direction: column;
+    width: 190px;
+    justify-content: center;
+}
+
+.abrig2 label{
+    text-align: center;
+
+}
+
+.abrig input{
+    width: 190px;
+    height: 45px!important;
+    border-radius: 5px;
+}
+
+.abrig .disp{
+    height: 25px!important;
+    margin-right: 10px;
+}
+
+.modal-content2 form input, .modal-content4 form input{
+    width: 94%;
+    height: 30px;
+}
+
+.modal-content2 form input[type="date"]{
+    height: 25px!important;
+    padding: 5px 10px;
+}
+
+.modal-content2 h2, .modal-content4 h2{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dsdsf{
+    font-size: 13px;
+}
+
+.modal-content2 form input[type="submit"], .modal-content4 form input[type="submit"]{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 590px){
+    .modal-content, .modal-content2, .modal-content3, .modal-content4 {
+        width: 80%;
+    }
+    .modal, .modal2, .modal3, .modal4 {
+        padding-top: 20px;
+        align-items: flex-start;
+    }
+}

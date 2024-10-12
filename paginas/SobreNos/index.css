@@ -1,0 +1,34 @@
+.tituloSobre h2{
+    font-size: 1.3rem;
+}
+.tituloSobre{
+    margin: 0px!important;
+}
+.explicacao h2{
+    font-size: 1.1rem;
+    margin: 20px 0px;
+}
+
+.explicacao p{
+    font-size: 1.1rem;
+    text-align: justify!important;
+    line-height: 40px;
+}
+
+.explicacao{
+    margin: 0px!important;
+}
+
+
+.imagemkd{
+    height: 400px;
+    width: 500px!important;
+    border: 1px solid black;
+    margin-left: 100px;
+}
+
+.laks{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 50px;
+}

@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos/estilo.css">
+    <link rel="stylesheet" href="./estilos/header.css">
+    <link rel="stylesheet" href="./estilos/popup.css">
+    <link rel="stylesheet" href="./post/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+
+    <style>
+        .filme .btnsU{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filme .btnsU div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 700;
+            height: 30px;
+            width: 90px;
+            cursor: pointer;
+        }
+        .filme .btnsU div img{
+            width: 14px;
+            margin-left: 10px;
+        }
+        .filme .btnsU div:first-child{
+            background-color: #0f79af;
+            border: 1px solid #0f79af;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+
+
+        .filme .btnsU div:last-child{
+            background-color: #f2f2f2;
+            border: 1px solid #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .filme .btnsU .update span{
+            color: #fff!important;
+        }
+
+        .filmes{
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .filmes .filme{
+            width: 220px;
+            min-height: 250px;
+            border: 0px solid #cccc;
+            padding: 10px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        .cabecalhoFilme{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cabecalhoFilme span:nth-child(2){
+            color: #0f79af;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .cabecalhoFilme span:nth-child(1){
+            color: #222;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .imgPost{
+            width: 100%;
+            margin: 10px 0px;
+        }
+        .imgPost img{
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .btnF{
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            background-color: #0f79af;
+            height: 45px;
+            width: 45px;
+            display: flex!important;
+            justify-content: center!important;
+            align-items: center!important;
+            border-radius: 100%;
+            cursor: pointer;
+            display: none;
+        }
+
+        .btnF img{
+            width: 20px;
+        }
+        .btnPagarF{
+            position: fixed;
+            bottom: 50px;
+            left: 25%;
+            background-color: #06aa5e;
+            height: 45px;
+            width: 45px;
+            display: flex!important;
+            justify-content: center!important;
+            align-items: center!important;
+            border-radius: 100%;
+            cursor: pointer;
+            display: none;
+        }
+
+        .btnPagarF img{
+            width: 20px;
+        }
+
+        .popPagaCartao{
+            z-index: 999999;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .sairXMaj, .sairXMaj2{
+            position: absolute;
+            right: 5px;
+            top: 20px;
+            background-color: #fff;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .assinarAqui{
+            width: 300px;
+            height: 370px;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .assinarAqui ul li{
+            list-style: none;
+        }
+
+        .idAssina{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .idAssina input[type="text"], #tempo{
+            margin-top: 10px;
+            height: 40px;
+            width: 240px;
+            text-indent: 10px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .idAssina input[type="submit"]{
+            width: 150px;
+            height: 30px;
+            display: flex!important;
+            justify-content: center!important;
+            align-items: center!important;
+            background-color: #0f79af;
+            color: #fff;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 0px solid black;
+        }
+
+        form label{
+            font-weight: 700!important;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .numerosEvio{
+            border-top: 1px solid #aaa;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+
+        .numerosEvio h3{
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .numerosEvio ul{
+            list-style: none;
+        }
+        .numerosEvio li{
+            font-size: 14px;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .pagamentoProcess{
+            font-size: 13px;
+            color: #0f79af;
+            font-weight: 700;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .atualizarPopFilme{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 0px;
+        }
+
+        .container h2{
+        color: #222!important;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #222;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4caf4faf;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .cadT{
+            color: #222;
+            text-decoration: none;
+        }
+
+        .cadT:hover {
+            text-decoration: underline;
+        }
+
+        label, p{
+            font-size: 14px;
+            color: #555;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: auto;
+            text-align: center;
+        }
+        
+        .etapa {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 10px;
+            width: 400px;
+            margin-left: 35%;
+            margin-top: 15%;
+        }
+        
+        .fechar-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            width: 30px;
+            background-color: #fff;
+            float: right;
+            color: #222;
+        }
+        
+        button {
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #ddd;
+        }
+        
+        .comunSpan{
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .cards .card p{
+            text-align: start;
+        }
+        .kjsu{
+            min-height: 50px!important;
+        }
+        .dadosEmprestimo{
+            padding: 0px 10px;
+            padding-bottom: 10px;
+            font-size: 14px;
+            color: #b9b9b9;
+            display: none;
+        }
+
+        .dadosEmprestimo span{
+            color: #b9b9b9;
+        }
+
+        .process{
+            color: #222!important;
+        }
+        .comuEmpre{
+            font-weight: 700;
+            font-size: 12px;
+            
+        }
+
+        .divida{
+            color: #ed2b2e!important;
+        }
+
+
+        .detalhesEmpre{
+            font-size: 12px!important;
+            margin-top: 5px!important;
+            font-weight: 700;
+        }
+
+        .pupupEmprestimo{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            z-index: 999999999;
+            top: 0;
+            left: 0;
+        }
+
+        .pupupEmprestimo{
+            display: none;
+        }
+        .pagarPup{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999999;
+        }
+
+        .sarBtnPag{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        cursor: pointer;
+        }
+
+        .cardPagar{
+        height: 190px;
+        width: 350px;
+        background-color: #fff;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        }
+
+        .btnPagaEmpr{
+        width: 150px;
+        height: 40px;
+        background-color: #222;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        color: #fff;
+        cursor: pointer;
+        }
+
+        .id{
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 20px;
+        }
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #222;
+        }
+
+        label, input, select {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-indent: 15px;
+            background-color: #fff;
+            outline: #007BFF;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+
+        button{
+            width: 150px;
+            background-color: #06aa5e;
+            height: 30px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .dataNascimento{
+            width: 100%!important;
+        }
+
+        .conta{
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .conta a{
+            text-decoration: none;
+            color: #5372f0;
+        }
+        label{
+            font-size: 14px;
+            color: #555;
+        }
+        .sigup{
+            background-color: #5372f0!important;
+            border: 1px solid #5372f0;
+            color: #fff;
+        }
+
+        #sinopse{
+            max-width: 100%;
+            max-height: 100px;
+            min-width: 100%;
+            min-height: 100px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        .idFilmeL{
+            font-size: 2px;
+            visibility: hidden;
+        }
+
+    </style>
+    <title>Dashboard</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav alturaChange">
+            <div class="coneti1">
+                <input type="checkbox" name="check" id="menu" class="menuCheck">
+                <label for="menu" class="humburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="logo">
+                    <img src="./img/icon/videography.png" alt="">
+                    <span>
+                        Taven Store
+                    </span>
+                </div>
+            </div>
+            
+            <div class="bannerPublicidade">
+
+                <div class="pesquisar">
+                    <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+                    
+                    <span class="spanX">
+                        x
+                    </span>
+                    <span class="spanBorder">
+    
+                    </span>
+                    <img src="./img/icon/searchv2.png" alt="">
+                </div>
+            </div>
+
+            <div class="btns">
+                <a href="#" class="notificacoes">
+                    <p>
+                        0+
+                    </p>
+                    <img src="./img/icon/bell.png" alt="">
+                </a>
+                <a href="#" class="fotoPerfil">
+                    <img src="./img/perfil/martinho.jpg" alt="">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="menuHorizaontal">
+            <div class="cimaP">
+                <div class="perfil">
+                    <div href="#" class="fotoPerfilM">
+                        <img src="./img/perfil/martinho.jpg" alt="user">
+                    </div>
+                    <div class="infor">
+                        <p>
+                            Taven Store
+                        </p>
+                        <a href="#">
+                            <span>
+                                Admin
+                            </span>
+                            <span class="bolinha">
+    
+                            </span>
+                            <span>
+                                Perfil
+                            </span>
+                            
+                        </a>
+                    </div>
+                    <!---->
+                </div>
+                <ul class="menuL">
+                    <li onclick="muda(0)" class="me">
+                        <a href="#">
+                            <div class="fir">
+                                <img src="./img/icon/home.png" alt="home">
+                                <span>
+                                    Página inicial
+                                </span>
+                            </div>
+                            <img src="./img/icon/next.png" alt="next" class="next">
+                        </a>
+                    </li>
+                    <li onclick="muda(1)">
+                        <a href="#" class="me">
+                            <div class="fir">
+                                <img src="./img/icon/group.png" alt="projetos">
+                                <span>
+                                    Clientes
+                                </span>
+                            </div>
+                            <img src="./img/icon/next.png" alt="next" class="next">
+                        </a>
+                    </li>
+                    <li onclick="muda(2)">
+                        <a href="#" class="me">
+                            <div class="fir">
+                                <img src="./img/icon/giving.png" alt="curso">
+                                <span>
+                                    Solicitações
+                                </span>
+                            </div>
+                            <img src="./img/icon/next.png" alt="next" class="next">
+                        </a>
+                    </li>
+                    <li onclick="muda(3)">
+                        <a href="#" class="me">
+                            <div class="fir">
+                                <img src="./img/bate-papo.png" alt="projetos">
+                                <span>
+                                    Mensagens
+                                </span>
+                            </div>
+                            <img src="./img/icon/next.png" alt="next" class="next">
+                        </a>
+                    </li>
+                    <li onclick="muda(4)">
+                        <a href="#" class="me">
+                            <div class="fir">
+                                <img src="./img/icon/video.png" alt="projetos">
+                                <span>
+                                    Filmes
+                                </span>
+                            </div>
+                            <img src="./img/icon/next.png" alt="next" class="next">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <footer>
+                <div class="redes">
+                    <a href="#" class="rede">
+                        <img src="./img/redes/fb.svg" alt="fb" class="fb">
+                    </a>
+                    <a href="#" class="rede">
+                        <img src="./img/redes/ig.svg" alt="ig">
+                    </a>
+                    <a href="#" class="rede">
+                        <img src="./img/redes/twitter.svg" alt="twitter">
+                    </a>
+                    <a href="#" class="rede">
+                        <img src="./img/redes/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+                <div class="direitos">
+                    &copy;2023 TavenStore
+                </div>
+            </footer>
+        </div>
+        <div class="menuVertical">
+            <div class="cardsM">
+                <div class="cardM">
+                    <h2>
+                        Todos Clientes
+                    </h2>
+                    <p class="allClientes">
+                        0
+                    </p>
+                </div>
+                <div class="cardM">
+                    <h2>
+                        Todas Solicitações
+                    </h2>
+                    <p class="allSocicitacoes">
+                        0
+                    </p>
+                </div>
+                <div class="cardM">
+                    <h2>
+                        Todos filmes
+                    </h2>
+                    <p class="allPagas">
+                        0
+                    </p>
+                </div>
+                <div class="cardM">
+                    <h2>
+                        Mensagens
+                    </h2>
+                    <p class="todasMsgV2">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="cardaBans">
+                <div class="projetosInfo comun">
+                    <div class="graf1">
+                        <div class="grafAll">
+                            <canvas id="linha">
+        
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardaBans">
+                <div class="projetosInfo comun2">
+                    <div class="filtro">
+                        <ul>
+                            <li>
+                                <span>Todos</span>
+                                <span class="clientesTexto">(04)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <table class="tabelaUser">
+                        <thead>
+                            <th>
+                                Usuário
+                            </th>
+                            <th>
+                                Número do celular
+                            </th>
+                            <th>
+                                Sexo
+                            </th>
+                            <th>
+                                data
+                            </th>
+                        </thead>
+                        
+                    </table>
+                </div>
+                
+            </div>
+
+            <div class="cardaBans">
+                <div class="projetosInfo comun3">
+                    <div class="filtro">
+                        <ul>
+                            <li>
+                                <span>Todos</span>
+                                <span class="todosSo">(40)</span>
+                            </li>
+                        </ul>
+                        <!---<div class="btnsU">
+                            <div class="update" onclick="openPopup('./img/casa_tipo_2/f1.jpg')">
+                                <span style="color: #fff;">
+                                    Atualizar
+                                </span>
+                                <img src="./img/refreshv2.png" alt="Atualizar">
+                            </div>
+                            <div class="deletes">
+                                <span>
+                                    Apagar
+                                </span>
+                                <img src="./img/trash.png" alt="Atualizar">
+                            </div>
+                        </div>-->
+                    </div>
+                    <table class="tabelaUser2">
+                        <thead>
+                            <th>
+                                Usuário
+                            </th>
+                            <th>
+                                Id
+                            </th>
+                            <th>
+                                Plano
+                            </th>
+                            <th>
+                                Inicio
+                            </th>
+                            <th>
+                                Termino
+                            </th>
+                            <th>
+                                Atividades
+                            </th>
+                        </thead>
+                        
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="cardaBans">
+                <div class="projetosInfo comun4">
+                    <div class="filtro">
+                        <ul>
+                            <li>
+                                <span>Todas</span>
+                                <span class="todasMsg">(0)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mensagens">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="cardaBans">
+                <div class="projetosInfo comun5">
+                    <div class="filtro">
+                        <ul>
+                            <li>
+                                <span>Todas</span>
+                                <span class="todasFilmes">(0)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="filmes">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="meuModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="linha"></div>
+                <h2>Atualizar dados</h2>
+                <form>
+                    <div class="formCar">
+                        <input type="text" id="nome" required placeholder="Nome Completo">
+                        <input type="email" id="email" required placeholder="Endereço de E-mail">
+                        <div class="abrig">
+                            <input type="tel" id="telefone" required placeholder="Número de Telefone">
+                            <input type="number" id="hospedes" required placeholder="Número de Hospedes">
+                        </div>
+                        
+                        <div class="linha"></div>   
+                        <div class="abrig">
+                            <div class="abrig2">
+                                <label for="checkin">Data de Check-In:</label>
+                                <input type="date" id="checkin" required>
+                            </div>
+                            <div class="abrig2">
+                                <label for="checkout">Data de Check-Out:</label>
+                                <input type="date" id="checkout" required>
+                            </div>
+                            
+                        </div>
+                        <input type="submit" value="Confirmar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="meuModal2" class="modal2">
+            <div class="modal-content2">
+                <span class="close2" onclick="closePopup3()">&times;</span>
+                <div class="linha"></div>
+                <h2>Atualizar</h2>
+                <form>
+                    <div class="formCar2">
+                        <input type="text" id="nome" required placeholder="Nome do quarto">
+                        <div class="abrig">
+                            <input type="text" id="nome" required placeholder="Disponibilidade" class="disp">
+                            <input type="number" id="hospedes" required placeholder="Número do quarto">
+                        </div>
+                        
+                        <div class="linha"></div>   
+                        <div class="abrig">
+                            <div class="abrig2">
+                                <label for="checkin" class="dsdsf">Data de Registro:</label>
+                                <input type="date" id="checkin" required>
+                            </div>
+                            <div class="abrig2">
+                                <label for="checkin" class="dsdsf">Imagem:</label>
+                                <input type="file" name="" id="">
+                            </div>
+                        </div>
+                        <input type="submit" value="Confirmar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="meuModal3" class="modal3">
+            <div class="modal-content3">
+                <span class="close3" onclick="closePopup4()">&times;</span>
+                <div class="linha"></div>
+                <h2>Adicionar foto</h2>
+                <form>
+                    <div class="formCar3">
+                        
+                        <div class="linha"></div>   
+                        <div class="abrig">
+                            <div class="abrig2">
+                                <label for="checkin" class="dsdsf">Data de Registro:</label>
+                                <input type="date" id="checkin" required>
+                            </div>
+                            <div class="abrig2">
+                                <label for="checkin" class="dsdsf">Imagem:</label>
+                                <input type="file" name="" id="">
+                            </div>
+                        </div>
+                        <input type="submit" value="Confirmar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="meuModal4" class="modal4">
+            <div class="modal-content4">
+                <span class="close4" onclick="closePopup5()">&times;</span>
+                <div class="linha"></div>
+                <h2>Adicionar Quarto</h2>
+                <form>
+                    <div class="formCar4">
+                        <input type="text" id="nome" required placeholder="Nome do quarto">
+                        <div class="abrig">
+                            <input type="text" id="nome" required placeholder="Disponibilidade" class="disp">
+                            <input type="number" id="hospedes" required placeholder="Número do quarto">
+                        </div>
+                        
+                        <div class="linha"></div>   
+                        <div class="abrig">
+                            <div class="abrig2">
+                                <label for="checkin" class="dsdsf">Data de Registro:</label>
+                                <input type="date" id="checkin" required>
+                            </div>
+                            <div class="abrig2">
+                                <label for="checkin" class="dsdsf">Imagem:</label>
+                                <input type="file" name="" id="">
+                            </div>
+                        </div>
+                        <input type="submit" value="Confirmar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="popupOverlay" class="overlay">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <img id="popupImage" class="popup-image" src="" alt="Imagem em Tela Cheia">
+            <form action="#" method="post">
+                <label for="">Nova imagem</label>
+                <input type="file" name="" id="">
+            </form>
+        </div>
+        <div class="btnF">
+            <img src="./img/plusv2.png" alt="Adcionar reservas">
+        </div>
+
+        <div class="btnPagarF">
+            <img src="./img/pay.png" alt="cbjdmbdsjdsb">
+        </div>
+
+        <div class="popPagaCartao">
+            <div class="sairXMaj">
+                x
+            </div>
+            <div class="assinarAqui">
+                <form class="idAssina" id="idAssina">
+                    <label for="id">Escreva o Id</label>
+                    <input type="text" name="" id="idPag" placeholder="Id de pagamento" required>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+
+        <div class="atualizarPopFilme">
+            <div class="sairXMaj2">
+                x
+            </div>
+            <div class="container">
+                <h2>Atualizar filme</h2>
+                <form id="signupForm">
+                    <div class="step active" id="step1">
+                        <label for="nFilme">Nome do filme:</label>
+                        <input type="text" id="email" name="nomeFilme" required class="nomeFilme">
+                        
+                        <label for="direccao">Direção:</label>
+                        <input type="text" id="direccao" name="direccao" required class="direccao">
+        
+                        <label for="elenco">Elenco:</label>
+                        <input type="text" id="elenco" name="elenco" required class="elenco">
+        
+                        <label for="cat">Categoria:</label>
+                        <select name="cat" id="cat" class="categoria">
+                            <option value="drama">Drama</option>
+                            <option value="accao">Acção</option>
+                            <option value="comedia">Comédia</option>
+                            <option value="ficcao">Ficção</option>
+                            <option value="romance">Romance</option>
+                            <option value="terror">Terror</option>
+                        </select>
+                        <label for="plano">Plano:</label>
+                        <select name="pla" id="pla" class="plano">
+                            <option value="gratis">Gratis</option>
+                            <option value="premium">Premium</option>
+                        </select>
+        
+                        <button type="button" onclick="nextStep(1)">Próximo</button>
+                    </div>
+                    <div class="step" id="step2">
+                        <label for="dataLancamento">Data do lançamento:</label>
+                        <input type="date" id="dataNascimento" name="dataNascimento" required class="dataLancamento">
+        
+                        <label for="sinopse">Sinopse</label>
+                        <textarea name="" id="sinopse" cols="30" rows="10" class="sinopse"></textarea>
+        
+                        <label for="postLink">Imagem de capa(link):</label>
+                        <input type="text" id="postLink" name="postLink" required class="post">
+        
+                       
+                        
+                        <button type="button" onclick="prevStep(2)">Anterior</button>
+                        <button type="submit" class="sigup">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script>
+        let currentStep = 1;
+        const form = document.getElementById('signupForm');
+        
+        function nextStep(step) {
+            if (step === currentStep && currentStep < 2) {
+                const currentStepFields = document.querySelectorAll('#step' + currentStep + ' input[required]');
+                let fieldsFilled = true;
+                currentStepFields.forEach(function(field) {
+                    if (field.value.trim() === '') {
+                        fieldsFilled = false;
+                    }
+                });
+                if (fieldsFilled) {
+                    document.getElementById('step' + currentStep).classList.remove('active');
+                    currentStep++;
+                    document.getElementById('step' + currentStep).classList.add('active');
+                } else {
+                    alert('Preencha todos os campos antes de prosseguir.');
+                }
+            }
+        }
+        
+        function prevStep(step) {
+            if (step === currentStep && currentStep > 1) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep--;
+                document.getElementById('step' + currentStep).classList.add('active');
+            }
+        }
+    </script>
+    <script src="./js/navega.js"></script>
+    <script src="./js/graficos.js"></script>
+    <script src="./js/galeria.js"></script>
+    <script src="./js/popup.js"></script>
+    <script type="module" src="./js/estatiscas.js"></script>
+</body>
+</html>
